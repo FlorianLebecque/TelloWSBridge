@@ -144,6 +144,7 @@ const ws = new WebSocket("ws://localhost:8005");
 ws.onopen = () => {
   console.log("Connected to Tello bridge");
   // Send the takeoff command
+  ws.send("command");
   ws.send("takeoff");
 };
 
