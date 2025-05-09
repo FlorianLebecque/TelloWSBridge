@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  socket2ws:
+    build: .
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    command:
+      - python
+      - main.py
+      - --socket-host
+      - 192.168.10.1
+      - --socket-port
+      - "8889"
+      - --local-port
+      - "9000"
+      - --websocket-host
+      - 0.0.0.0
+      - --websocket-port
+      - "8005"
+      - --video-port
+      - "8555"
+      - --debug
